@@ -10,7 +10,7 @@ ENV LDAP_LTB_PWD "changeme"
 ENV LDAP_LTB_BS "dc=ldap,dc=example,dc=com"
 
 # Install Apache2, PHP and LTB ssp
-RUN apt-get update && apt-get install -y apache2 php5.6 php5.6-mcrypt php5.6-ldap curl && apt-get clean
+RUN sudo add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y apache2 php5.6 php5.6-mcrypt php5.6-ldap curl && apt-get clean
 RUN curl https://ltb-project.org/archives/self-service-password_0.9-1_all.deb > self-service-password.deb && dpkg -i self-service-password.deb ; rm -f self-service-password.deb
 
 # Configure self-service-password site
